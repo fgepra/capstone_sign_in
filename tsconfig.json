@@ -1,3 +1,30 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "compilerOptions": {
+    "target": "es2017",                         // 최신 JS 기능 사용
+    "module": "esnext",
+    "lib": ["es2017"],
+    "jsx": "react-native",                      // 리액트 네이티브용 JSX 설정
+    "allowJs": true,                            // JS 파일도 허용
+    "skipLibCheck": true,                       // @types 검사 스킵 (속도 개선)
+    "noEmit": true,                             // 실제 JS 코드 출력 안 함
+    "strict": true,                             // 엄격한 타입 검사 전체 적용 (추천)
+    "moduleResolution": "node",
+    "resolveJsonModule": true,                  // JSON import 가능
+    "isolatedModules": true,                    // 각 파일을 개별 모듈로 처리
+    "esModuleInterop": true,                    // commonjs/ESM 호환
+    "forceConsistentCasingInFileNames": true,   // 대소문자 일관성 체크
+    "noImplicitAny": true,                      // 암시적 any 금지
+    "noUnusedLocals": true,                     // 사용하지 않는 변수 경고
+    "noUnusedParameters": true,                 // 사용하지 않는 매개변수 경고
+    "allowSyntheticDefaultImports": true,       // default import 허용
+    "baseUrl": "./src",                         // 절대경로 import 설정
+    "paths": {
+      "@components/*": ["components/*"],        // 예: import from '@components/MyButton'
+      "@screens/*": ["screens/*"],
+      "@assets/*": ["assets/*"],
+      "types": ["react", "react-native"]
+    }
+  },
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js"],
+  "include": ["src/**/*"]
 }
